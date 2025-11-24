@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
 
 type Category = "role" | "project" | "certificate";
 
@@ -21,23 +20,14 @@ export default function About() {
 
   const items: CardData[] = [
     { id: 1, title: "CSC-CCS OFFICER", subtitle: "ASSISTANT AUDITOR", img: "/hero1.jfif", body: "Served as CSC-CCS Officer where I coordinated student activities...", date: "2025 – Present", category: "role" },
-
     { id: 2, title: "CYBERDEVS EXECUTIVE", subtitle: "AUDITOR", img: "/cyber.jfif", body: "Active member of CyberDevs...", date: "2025 – Present", category: "role" },
-
     { id: 5, title: "Microsoft Office Specialist", img: "/cert1.jfif", body: "Awarded for outstanding performance.", date: "January 18, 2025", category: "certificate" },
-
     { id: 6, title: "Python Webinar", img: "/cert2.jfif", body: "Recognized for research contribution.", date: "June 24, 2025", category: "certificate" },
-
     { id: 7, title: "Cloud and Code Webinar", img: "/cert3.jfif", body: "Leadership recognition.", date: "June 27, 2025", category: "certificate" },
-
     { id: 8, title: "BYTE 2025", img: "/cert4.jpg", body: "Completed front-end workshop.", date: "October 17, 2025", category: "certificate" },
-
     { id: 9, title: "SIAS Redesign", img: "/sias.jfif", body: "Redesigned a responsive e-learning platform...", date: "2025", category: "project" },
-
     { id: 10, title: "Aisha", img: "/aisha.jfif", body: "Smart Home Assistant", date: "2025", category: "project" },
-
     { id: 11, title: "Socket2me", img: "/socket2me.jfif", body: "Auditing tool for vulnerabilities...", date: "2025", category: "project" },
-
     { id: 12, title: "NCF Wayfinder", img: "/wayfinder.jfif", body: "Navigating app", date: "2025", category: "project" }
   ];
 
@@ -87,7 +77,7 @@ export default function About() {
           <p className="text-[16px] text-pink-200 mb-6">Zone 4, Sta. Lucia, Magarao, Camarines Sur</p>
 
           <p className="text-[16px] md:text-[18px] max-w-2xl leading-relaxed opacity-95">
-            I am a passionate and dedicated student with a strong drive for excellence. I am always eager to learn, motivated to take on new challenges, and determined to reach my full potential—both academically and personally.
+            I am a passionate and dedicated student with a strong drive for excellence.
           </p>
 
           {/* SKILLS */}
@@ -128,10 +118,14 @@ export default function About() {
               <button
                 key={r.id}
                 onClick={() => setSelected(r)}
-                className="group relative rounded-2xl overflow-hidden shadow-2xl transform transition hover:scale-105"
+                className="group relative rounded-2xl overflow-hidden shadow-2xl"
               >
                 <div className="relative w-full h-44 md:h-56 bg-gray-800">
-                  <img src={r.img} alt={r.title} className="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
+                  <img
+                    src={r.img}
+                    alt={r.title}
+                    className="w-full h-full object-cover transition duration-500 group-hover:scale-110"
+                  />
                 </div>
                 <div className="absolute left-0 bottom-0 right-0 bg-gradient-to-t from-black/60 to-transparent px-4 py-3">
                   <p className="text-sm text-pink-300 font-semibold">{r.title}</p>
@@ -150,10 +144,14 @@ export default function About() {
               <button
                 key={p.id}
                 onClick={() => setSelected(p)}
-                className="group relative rounded-2xl overflow-hidden shadow-2xl transform transition hover:scale-105"
+                className="group relative rounded-2xl overflow-hidden shadow-2xl"
               >
                 <div className="w-full h-40 md:h-52 bg-gray-900">
-                  <img src={p.img} alt={p.title} className="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
+                  <img
+                    src={p.img}
+                    alt={p.title}
+                    className="w-full h-full object-cover transition duration-500 group-hover:scale-110"
+                  />
                 </div>
                 <div className="absolute inset-0 flex items-end">
                   <div className="w-full bg-gradient-to-t from-black/60 to-transparent px-4 py-3">
@@ -174,10 +172,14 @@ export default function About() {
               <button
                 key={c.id}
                 onClick={() => setSelected(c)}
-                className="group relative rounded-2xl overflow-hidden shadow-2xl transform transition hover:scale-105"
+                className="group relative rounded-2xl overflow-hidden shadow-2xl"
               >
                 <div className="w-full h-40 md:h-52 bg-gray-900">
-                  <img src={c.img} alt={c.title} className="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
+                  <img
+                    src={c.img}
+                    alt={c.title}
+                    className="w-full h-full object-cover transition duration-500 group-hover:scale-110"
+                  />
                 </div>
                 <div className="absolute inset-0 flex items-end">
                   <div className="w-full bg-gradient-to-t from-black/60 to-transparent px-4 py-3">
@@ -191,57 +193,48 @@ export default function About() {
         </div>
       </section>
 
-      {/* MODAL */}
-      <AnimatePresence>
-        {selected && (
-          <motion.div
-            className="fixed inset-0 bg-black/60 z-[999] flex items-center justify-center px-6"
-            onClick={() => setSelected(null)}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
+      {/* MODAL (no animation) */}
+      {selected && (
+        <div
+          className="fixed inset-0 bg-black/60 z-[999] flex items-center justify-center px-6"
+          onClick={() => setSelected(null)}
+        >
+          <div
+            className="bg-[#081018] w-full max-w-4xl rounded-2xl p-6 md:p-10 relative"
+            onClick={(e) => e.stopPropagation()}
           >
-            <motion.div
-              className="bg-[#081018] w-full max-w-4xl rounded-2xl p-6 md:p-10 relative"
-              onClick={(e) => e.stopPropagation()}
-              initial={{ opacity: 0, y: 20, scale: 0.95 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: 20, scale: 0.95 }}
-              transition={{ duration: 0.25 }}
+            <button
+              onClick={() => setSelected(null)}
+              className="absolute top-4 right-4 text-white/80 text-xl"
             >
-              <button
-                onClick={() => setSelected(null)}
-                className="absolute top-4 right-4 text-white/80 text-xl"
-              >
-                ✕
-              </button>
+              ✕
+            </button>
 
-              <div className="flex flex-col md:flex-row gap-6">
-                <img
-                  src={selected.img}
-                  className="w-full md:w-[420px] h-auto max-h-[700px] object-cover rounded-xl"
-                  alt={selected.title}
-                />
+            <div className="flex flex-col md:flex-row gap-6">
+              <img
+                src={selected.img}
+                className="w-full md:w-[420px] h-auto max-h-[700px] object-cover rounded-xl"
+                alt={selected.title}
+              />
 
-                <div>
-                  <h3 className="text-2xl font-bold text-pink-300">{selected.title}</h3>
-                  {selected.subtitle && (
-                    <p className="text-sm text-white/70">{selected.subtitle}</p>
-                  )}
+              <div>
+                <h3 className="text-2xl font-bold text-pink-300">{selected.title}</h3>
+                {selected.subtitle && (
+                  <p className="text-sm text-white/70">{selected.subtitle}</p>
+                )}
 
-                  <p className="mt-4 text-white/90">{selected.body}</p>
+                <p className="mt-4 text-white/90">{selected.body}</p>
 
-                  {selected.date && (
-                    <p className="mt-3 text-pink-400 text-sm font-semibold">
-                      📅 {selected.date}
-                    </p>
-                  )}
-                </div>
+                {selected.date && (
+                  <p className="mt-3 text-pink-400 text-sm font-semibold">
+                    📅 {selected.date}
+                  </p>
+                )}
               </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 }
