@@ -67,7 +67,7 @@ export default function About() {
 
         {/* PROFILE */}
         <div className="absolute top-30 right-30">
-          <img src="/picko.PNG" alt="Profile" className="w-56 h-56 md:w-64 md:h-64 rounded-full object-cover border-4 border-pink-400 shadow-2xl" />
+          <img src="/picko.png" alt="Profile" className="w-56 h-56 md:w-64 md:h-64 rounded-full object-cover border-4 border-pink-400 shadow-2xl" />
         </div>
 
         <div className="max-w-5xl mx-auto">
