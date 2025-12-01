@@ -3,64 +3,12 @@ import Link from "next/link";
 export default function Home() {
   return (
     <>
-      {/* --- NAVIGATION BAR --- */}
-      <nav className="w-full fixed top-0 left-0 z-50 flex justify-center py-6">
-        <ul className="flex gap-6 bg-white/10 backdrop-blur-xl px-10 py-3 rounded-full border border-white/10">
-
-          <li>
-            <Link
-              href="/"
-              className="px-5 py-2 rounded-full bg-pink-400 text-black font-semibold shadow-md hover:bg-pink-300 transition"
-            >
-              HOME
-            </Link>
-          </li>
-
-          <li>
-            <Link
-              href="/about"
-              className="px-5 py-2 rounded-full text-white hover:bg-white/20 transition"
-            >
-              ABOUT
-            </Link>
-          </li>
-
-          <li>
-            <Link
-              href="/education"
-              className="px-5 py-2 rounded-full text-white hover:bg-white/20 transition"
-            >
-              EDUCATION
-            </Link>
-          </li>
-
-          <li>
-            <Link
-              href="/hobbies"
-              className="px-5 py-2 rounded-full text-white hover:bg-white/20 transition"
-            >
-              HOBBIES
-            </Link>
-          </li>
-
-          <li>
-            <Link
-              href="/contact"
-              className="px-5 py-2 rounded-full text-white hover:bg-white/20 transition"
-            >
-              CONTACT
-            </Link>
-          </li>
-
-        </ul>
-      </nav>
-
       {/* --- HERO SECTION --- */}
       <section
         className="relative w-full min-h-screen flex items-center justify-center text-white overflow-hidden"
         style={{
-          background:
-            "linear-gradient(160deg, rgba(255,43,117,0.8) 0%, rgba(10,10,10,0.8) 70%), url(/bg1.jpg)",
+          backgroundImage:
+            "linear-gradient(160deg, rgba(255,43,117,0.8) 0%, rgba(10,10,10,0.8) 70%)",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -86,7 +34,7 @@ export default function Home() {
 
         {/* ARAÑEZ — PINK */}
         <h1
-          className="absolute top-[33%] text-[80px] md:text-[150px] font-extrabold tracking-tight select-none text-white-500 opacity-70"
+          className="absolute top-[33%] text-[80px] md:text-[150px] font-extrabold tracking-tight select-none text-white opacity-70"
           style={{ animation: "floatFade 3s ease-in-out infinite" }}
         >
           ARANEZ
@@ -95,7 +43,7 @@ export default function Home() {
         {/* IMAGE */}
         <div className="absolute bottom-0 z-20">
           <img
-            src="/picko.png"
+            src="/profile.png"
             alt="Karryl Faye"
             className="w-[300px] md:w-[510px] drop-shadow-[0_0_40px_rgba(255,0,150,0.5)]"
           />
